@@ -4,9 +4,8 @@
 
     <scroll
       ref="scroll"
-      :data="[list]"
-      class="common-content"
-      @pullingDown="refresh()"
+      class="content"
+      @pullingDown="loadRefresh()"
       @pullingUp="loadMore()">
       <div class="scroll-content">
         <ul>
@@ -20,6 +19,7 @@
 
 <script>
 import Scroll from './components/Scroll'
+import { timeout } from './components/Scroll/utils'
 
 export default {
   name: 'App',
@@ -28,81 +28,51 @@ export default {
   },
   data () {
     return {
-      list: ['下拉即可刷新', '上拉触发加载更多'],
+      list: [],
       page: 1,
       pageSize: 10,
     }
   },
-  watch: {
-    startY () {
-      this.rebuildScroll()
-    },
-  },
   mounted () {
-    this.refresh()
+    this.loadRefresh()
   },
   methods: {
-    rebuildScroll () {
-      this.$nextTick(() => {
-        this.$refs.scroll.destroy()
-        this.$refs.scroll.initScroll()
-      })
-    },
-    scrollTo () {
-      this.$refs.scroll.scrollTo(this.scrollToX, this.scrollToY, this.scrollToTime)
-    },
+    // 滚动到顶部
     scrollToTop () {
-      this.$refs.scroll.scrollTo(0, 0, 600)
+      this.$refs.scroll.scrollTo(0, 0)
     },
-    refresh () {
-      this._getList().then(data => {
-        // 初始化数据
-        this.list = data
-        this.page = 1
-      })
-    },
-    loadMore () {
-      this._getNextPage().then(data => {
-        this.list.push(...data)
+    // 加载刷新数据
+    async loadRefresh () {
+      const data = await this._fetchList()
 
-        data.length < this.pageSize ? this.$refs.scroll.forceUpdate(false) : this.page++ // 是否已到达最后一页?
-      })
+      // 初始化数据
+      this.list = data
+      this.page = 1
+
+      this.$refs.scroll.update()
+    },
+    // 加载更多数据
+    async loadMore () {
+      const page = this.page + 1
+      const data = await this._fetchList(page)
+
+      this.list.push(...data)
+      data.length < this.pageSize ? this.$refs.scroll.update(true) : this.page++ // 判断是否已到达最后一页
     },
 
-    _getList () {
-      let page = 1
-      let pageSize = this.pageSize
-      // 模拟数据请求
-      return new Promise(resolve => {
-        setTimeout(() => {
-          let arr = []
-          for (let i = 0; i < pageSize; i++) {
-            arr.push(`第${page}页的数据`)
-          }
-          resolve(arr)
-        }, 1000)
-      })
-    },
-    _getNextPage () {
-      let nextPage = this.page + 1
-      let pageSize = this.pageSize
-      // 模拟请求下一页
-      return new Promise(resolve => {
-        setTimeout(() => {
-          let arr = []
-          if (nextPage < 4) {
-            for (let i = 0; i < pageSize; i++) {
-              arr.push(`第${nextPage}页的数据`)
-            }
-          } else {
-            // 模拟已到达最后一页
-            for (let i = 0; i < 8; i++) {
-              arr.push(`第${nextPage}页的数据,已到达最后一页`)
-            }
-          }
-          resolve(arr)
-        }, 1000)
-      })
+    // 模拟一个异步获取列表操作
+    async _fetchList (page = 1, pageSize = this.pageSize) {
+      try {
+        await timeout(1000)
+
+        if (page < 4) { // 模拟数据返回
+          return Array.from({length: pageSize}, (value, index) => `第${page}页的数据${index}`)
+        } else { // 模拟已到达最后一页时的数据返回
+          return Array.from({length: pageSize / 2}, (value, index) => `第${page}页的数据${index},最后一页`)
+        }
+      } catch (e) {
+        return false
+      }
     },
   },
 }
@@ -110,57 +80,54 @@ export default {
 
 <style lang="stylus">
 $headerHeight = 44px
-$mainColor = #6A9FB5
+$baseColor = #6A9FB5
 $bgColor = #FAFAFA
 
+* {
+  padding: 0
+  margin: 0
+}
+
 html, body {
-  width 100%
-  height 100%
-  overflow hidden
+  width: 100%
+  height: 100%
+  overflow: hidden
 }
 
 #app {
-  width 100%
-  height 100%
-  overflow hidden
-  box-sizing border-box
+  width: 100%
+  height: 100%
+  overflow: hidden
+  box-sizing: border-box
+  display: flex
+  flex-direction: column
   .header {
-    position absolute
-    top 0
-    left 0
-    right 0
-    text-align center
-    z-index 100
-    height $headerHeight
-    line-height $headerHeight
-    color #fff
-    background $mainColor
-  }
-  // 公共内容盒子
-  .common-content {
-    position absolute
-    top $headerHeight !important
-    left 0
-    right 0
-    bottom 0
-    background-color $bgColor
-    overflow hidden
-    box-sizing border-box
+    flex: 0 0 $headerHeight
+    line-height: $headerHeight
+    text-align: center
+    color: #fff
+    background: $baseColor
     .ios & {
-      top ($headerHeight + 20px) !important
+      padding-top: 20px
     }
+  }
+  .content {
+    flex: 1
+    background-color: $bgColor
+    overflow: hidden
+    box-sizing: border-box
     .scroll-content {
-      box-sizing border-box
+      box-sizing: border-box
       ul {
-        margin 0
-        padding 0
+        margin: 0
+        padding: 0
         li {
-          background #fff
-          height 44px
-          line-height 44px
-          text-align center
-          color $mainColor
-          border-bottom 1px solid #eee
+          background: #fff
+          height: 44px
+          line-height: 44px
+          text-align: center
+          color: $baseColor
+          border-bottom: 1px solid #eee
         }
       }
     }
