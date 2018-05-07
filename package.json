@@ -6,6 +6,7 @@
   "license": "MIT",
   "private": false,
   "keywords": [
+    "vue",
     "better-scroll",
     "vue-better-scroll",
     "vue2-better-scroll",
@@ -13,8 +14,7 @@
     "vue-scroller",
     "vue2-scroll",
     "vue2-scroller",
-    "simple-scroll",
-    "slim-scroll"
+    "simple-scroll"
   ],
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
