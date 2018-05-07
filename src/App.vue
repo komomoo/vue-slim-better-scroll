@@ -1,12 +1,12 @@
 <template>
   <div id="app">
-    <header class="header" @click="scrollToTop()">点我回到顶部</header>
+    <header class="header" @click="scrollToTop">点我回到顶部</header>
 
     <scroll
       ref="scroll"
       class="content"
-      @pullingDown="loadRefresh()"
-      @pullingUp="loadMore()">
+      @pullingDown="loadRefresh"
+      @pullingUp="loadMore">
       <ul>
         <li v-for="(item, index) in list" :key="index">{{ item }}</li>
       </ul>
