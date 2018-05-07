@@ -1,5 +1,5 @@
 <template>
-  <div class="mf-loading-container">
+  <div class="loading-container">
     <img src="./loading.gif">
   </div>
 </template>
@@ -11,7 +11,7 @@ export default {
 }
 </script>
 <style lang="stylus">
-  .mf-loading-container
+  .loading-container
     img
       width: 20px
       height: 20px

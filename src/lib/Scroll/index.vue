@@ -6,6 +6,7 @@
 
 <template>
   <div ref="scroll" class="scroll">
+
     <div class="scroll-wrapper">
       <div ref="scrollContent" class="scroll-content">
         <slot/>
@@ -53,8 +54,8 @@
 
 <script type="text/ecmascript-6">
 import BScroll from 'better-scroll'
-import Loading from './loading/loading.vue'
-import Bubble from './bubble/bubble.vue'
+import Loading from './Loading'
+import Bubble from './Bubble'
 import { timeout } from './utils'
 
 export default {
@@ -109,7 +110,7 @@ export default {
       type: Object,
       default: () => ({
         threshold: 90, // 触发 pullingDown 的距离
-        stop: 40,
+        stop: 40, // pullingDown 正在刷新 hold 时的距离
         txt: '刷新成功',
       }),
     },
@@ -122,8 +123,8 @@ export default {
       // 上拉加载配置
       type: Object,
       default: () => ({
-        threshold: 100, // 触发 pullingUp 的距离
-        txt: { more: '上拉加载', noMore: '-- 到底了 --' },
+        threshold: 100, // 提前触发 pullingUp 的距离
+        txt: { more: '上拉加载', noMore: '— 我是有底线的 —' },
       }),
     },
     startY: {
@@ -139,7 +140,7 @@ export default {
     bounceTime: {
       // 回弹时间
       type: Number,
-      default: 800,
+      default: 600,
     },
   },
   data () {
@@ -173,6 +174,13 @@ export default {
   async mounted () {
     await this.$nextTick()
     this.initScroll()
+
+    // 深监视 $data，发生改变时更新高度
+    this.$watch(() => this.$slots.default[0].context.$data, (val) => {
+      this.update()
+    }, {
+      deep: true,
+    })
   },
   methods: {
     // 初始化scroll
@@ -199,13 +207,15 @@ export default {
 
       this.scroll = new BScroll(this.$refs.scroll, options)
 
-      this.listenScroll && this.scroll.on('scroll', pos => {
-        this.$emit('scroll', pos)
-      })
+      this.listenScroll &&
+        this.scroll.on('scroll', pos => {
+          this.$emit('scroll', pos)
+        })
 
-      this.listenBeforeScroll && this.scroll.on('beforeScrollStart', () => {
-        this.$emit('beforeScrollStart')
-      })
+      this.listenBeforeScroll &&
+        this.scroll.on('beforeScrollStart', () => {
+          this.$emit('beforeScrollStart')
+        })
 
       this.pullDown && this._initPullDown()
 
@@ -217,43 +227,36 @@ export default {
         this.pullDownBefore = false
         this.pullDownNow = true
         this.$emit('pullingDown')
+        this.scroll.closePullDown() // 防止在 bounce 前二次触发
       })
 
       this.scroll.on('scroll', pos => {
-        if (!this.pullDown) return
+        if (!this.pullDown || pos.y < 0) return
+
+        const posY = Math.floor(pos.y) // 滚动的y轴位置：Number
 
         if (this.pullDownBefore) {
-          this.bubbleY = Math.max(0, pos.y + this.pullDownInitTop)
-          this.pullDownStyle = `top:${Math.min(pos.y + this.pullDownInitTop, 10)}px`
+          this.bubbleY = Math.max(0, posY + this.pullDownInitTop)
+          this.pullDownStyle = `transform: translateY(${Math.min(posY, -this.pullDownInitTop)}px)`
         } else {
           this.bubbleY = 0
         }
 
         if (this.isRebounding) {
-          this.pullDownStyle = `top:${10 - (this.pullDown.stop - pos.y)}px`
+          this.pullDownStyle = `transform: translateY(${Math.min(posY, this.pullDownConfig.stop)}px)`
         }
       })
     },
     // 初始化上拉加载
     _initPullUp () {
-      this.scroll.on('pullingUp', async () => {
-        if (this.pullUpFinally) return
-
-        this.pullUpNow = true
-        this.$emit('pullingUp')
+      this.scroll.on('pullingUp', () => {
+        if (this.pullUpFinally) {
+          this.scroll.closePullUp()
+        } else {
+          this.pullUpNow = true
+          this.$emit('pullingUp')
+        }
       })
-    },
-    async _pullDownRebound () {
-      await timeout(this.bounceTime)
-      this.isRebounding = true
-      this.scroll.finishPullDown()
-    },
-    async _pullDownAfter () {
-      await timeout(this.bounceTime)
-      this.pullDownStyle = `top:${this.pullDownInitTop}px`
-      this.pullDownBefore = true
-      this.isRebounding = false
-      this.refresh()
     },
     // 关闭滚动
     disable () {
@@ -265,27 +268,36 @@ export default {
     },
     // 销毁滚动示例
     destroy () {
-      this.scroll.destroy()
+      this.scroll && this.scroll.destroy()
     },
     // 刷新滚动高度
     refresh () {
       this.scroll && this.scroll.refresh()
     },
-    // 更新加载状态
-    async update (dirty) {
+    // 更新加载状态，下拉/下拉成功后使用
+    async update (final) {
       if (this.pullDown && this.pullDownNow) {
-        this.pullUpFinally = false
+        // 下拉刷新触发成功后
         this.pullDownNow = false
-        await this._pullDownRebound()
-        this._pullDownAfter()
+        await timeout(this.bounceTime / 2) // 刷新成功hold
+        this.isRebounding = true
+        this.scroll.finishPullDown() // 开始回弹
+        await timeout(this.bounceTime)
+        this.pullDownBefore = true
+        this.isRebounding = false
+        this.scroll.openPullDown(this.pullDownConfig)
+
+        this.pullUpFinally = false
+        this.pullUp && this.scroll.openPullUp(this.pullUpConfig)
       } else if (this.pullUp && this.pullUpNow) {
+        // 上拉加载触发成功后
         this.pullUpNow = false
         this.scroll.finishPullUp()
-        this.pullUpFinally = !!dirty
-        this.refresh()
-      } else {
-        this.refresh()
+
+        this.pullUpFinally = !!final
       }
+      await this.$nextTick()
+      this.refresh()
     },
     /**
      * 滚动到指定位置
@@ -307,35 +319,43 @@ export default {
 
 <style lang="stylus">
 .scroll {
-  width: 100%
-  height: 100%
-  overflow: hidden
-  box-sizing: border-box
-  font-size: 14px
-  color: #606c71
+  width 100%
+  height 100%
+  overflow hidden
+  box-sizing border-box
+  font-size 14px
+  color rgb(153, 153, 153)
+  position relative
   .scroll-wrapper {
-    position: relative
-    z-index: 1
-  }
-  .pulldown-wrapper {
-    position: absolute
-    width: 100%
-    top: -50px
-    left: 0
-    display: flex
-    justify-content: center
-    align-items: center
-    transition: all
-    .after-trigger {
-      margin-bottom: 10px
+    position relative
+    z-index 1
+    .pullup-wrapper {
+      width 100%
+      height 50px
+      display flex
+      justify-content center
+      align-items center
     }
   }
-  .pullup-wrapper {
-    width: 100%
-    display: flex
-    justify-content: center
-    align-items: center
-    padding: 16px 0
+  .pulldown-wrapper {
+    position absolute
+    left 0
+    top -50px
+    width 100%
+    display flex
+    justify-content center
+    align-items center
+    transition all
+    .before-trigger {
+      display flex
+    }
+    .after-trigger {
+      width 100%
+      height 40px
+      display flex
+      justify-content center
+      align-items center
+    }
   }
 }
 </style>

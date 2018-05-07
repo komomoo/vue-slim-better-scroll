@@ -1,7 +1,7 @@
 {
   "name": "vue-slim-better-scroll",
   "version": "1.0.0",
-  "description": "极简使用的 better-scroll vue封装",
+  "description": "极简使用的/更简洁的vue滚动插件，基于better-scroll",
   "author": "momoko <928701977@qq.com>",
   "license": "MIT",
   "private": false,

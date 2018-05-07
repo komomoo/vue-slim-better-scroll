@@ -45,5 +45,7 @@ module.exports = {
         "allowFirstLine": false
       }
     }],
+    // 关闭属性名必须是 '-' 连接
+    "vue/attribute-hyphenation": 0,
   }
 }
