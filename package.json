@@ -1,10 +1,15 @@
 {
   "name": "vue-slim-better-scroll",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "极简使用的/更简洁的vue滚动插件，基于better-scroll",
   "author": "momoko <928701977@qq.com>",
   "license": "MIT",
   "private": false,
+  "main": "dist/vue-slim-better-scroll.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wannaxiao/vue-slim-better-scroll"
+  },
   "keywords": [
     "vue",
     "better-scroll",

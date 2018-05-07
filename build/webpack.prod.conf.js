@@ -27,7 +27,7 @@ const webpackConfig = merge(baseWebpackConfig, {
   output: {
     path: config.build.assetsRoot,
     filename: 'vue-slim-better-scroll.js',
-    library: 'vueSlimBetterScroll',
+    library: 'vue-slim-better-scroll',
     libraryTarget: 'umd',
     umdNamedDefine: true
   },
