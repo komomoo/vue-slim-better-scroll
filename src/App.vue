@@ -53,7 +53,7 @@ export default {
       const data = await this._fetchList(page)
 
       this.list.push(...data)
-      data.length < this.pageSize ? this.$refs.scroll.update(true) : this.page++ // 判断是否已达最后一页
+      data.length < this.pageSize ? this.$refs.scroll.update(true) : this.page++ // 判断是否已达最后一页?如果已是最后一页，可调用this.$refs.scroll.update(true)关闭上拉
     },
 
     // 模拟一个异步获取列表操作
