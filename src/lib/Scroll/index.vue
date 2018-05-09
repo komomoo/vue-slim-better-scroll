@@ -142,6 +142,18 @@ export default {
       type: Number,
       default: 600,
     },
+    preventDefaultException: {
+      // 不阻止默认行为
+      type: Object,
+      default: () => ({
+        tagName: /^(INPUT|TEXTAREA|BUTTON|SELECT)$/,
+      }),
+    },
+    autoUpdate: {
+      // 自动刷新高度
+      type: Boolean,
+      default: true,
+    },
   },
   data () {
     return {
@@ -176,7 +188,7 @@ export default {
     this.initScroll()
 
     // 深监视 $data，发生改变时更新高度
-    this.$watch(() => this.$slots.default[0].context.$data, (val) => {
+    this.autoUpdate && this.$parent && this.$parent.$data && this.$watch(() => this.$parent.$data, (val) => {
       this.update()
     }, {
       deep: true,
@@ -203,6 +215,7 @@ export default {
         startY: this.startY,
         bounce: this.bounce,
         bounceTime: this.bounceTime,
+        preventDefaultException: this.preventDefaultException,
       }
 
       this.scroll = new BScroll(this.$refs.scroll, options)
@@ -323,8 +336,6 @@ export default {
   height 100%
   overflow hidden
   box-sizing border-box
-  font-size 14px
-  color rgb(153, 153, 153)
   position relative
   .scroll-wrapper {
     position relative
@@ -335,6 +346,8 @@ export default {
       display flex
       justify-content center
       align-items center
+      font-size 14px
+      color rgb(153, 153, 153)
     }
   }
   .pulldown-wrapper {
@@ -346,6 +359,8 @@ export default {
     justify-content center
     align-items center
     transition all
+    font-size 14px
+    color rgb(153, 153, 153)
     .before-trigger {
       display flex
     }
