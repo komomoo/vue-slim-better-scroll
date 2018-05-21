@@ -150,9 +150,19 @@ export default {
       }),
     },
     autoUpdate: {
-      // 自动刷新高度
+      // 自动刷新高度:适用于简单场景，复杂场景请使用updateData/refreshData
       type: Boolean,
       default: true,
+    },
+    updateData: {
+      // 引起更新加载状态的数据（下拉刷新/上拉加载相关的数据）
+      type: Array,
+      default: null,
+    },
+    refreshData: {
+      // 引起刷新高度的数据
+      type: Array,
+      default: null,
     },
   },
   data () {
@@ -180,6 +190,15 @@ export default {
       return this.pullUpFinally ? noMoreTxt : moreTxt
     },
   },
+  watch: {
+    updateData () {
+      this.update()
+    },
+    async refreshData () {
+      await this.$nextTick()
+      this.refresh()
+    },
+  },
   created () {
     this.pullDownInitTop = -50
   },
@@ -187,7 +206,7 @@ export default {
     await this.$nextTick()
     this.initScroll()
 
-    // 深监视 $data，发生改变时更新高度
+    // 自动刷新高度：深监视 $data，发生改变时更新高度
     this.autoUpdate && this.$parent && this.$parent.$data && this.$watch(() => this.$parent.$data, (val) => {
       this.update()
     }, {
