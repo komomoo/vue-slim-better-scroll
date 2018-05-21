@@ -1,7 +1,7 @@
 {
   "name": "vue-slim-better-scroll",
-  "version": "1.0.8",
-  "description": "极简使用的/更简洁的vue滚动插件，基于better-scroll",
+  "version": "1.1.0",
+  "description": "开箱即用的/渐进式的vue移动端滚动组件/插件，基于better-scroll",
   "author": "momoko <928701977@qq.com>",
   "license": "MIT",
   "private": false,
@@ -28,6 +28,7 @@
     "test": "npm run unit",
     "lint": "eslint --ext .js,.vue src test/unit",
     "build": "node build/build.js",
+    "build:rollup": "rollup -c rollup/index.js",
     "build:page": "CONFIG_ENV=page node build/build.js"
   },
   "dependencies": {
@@ -74,6 +75,14 @@
     "postcss-loader": "^2.0.8",
     "postcss-url": "^7.2.1",
     "rimraf": "^2.6.0",
+    "rollup": "^0.59.1",
+    "rollup-plugin-babel": "^3.0.4",
+    "rollup-plugin-node-resolve": "^3.3.0",
+    "rollup-plugin-postcss": "^1.6.1",
+    "rollup-plugin-replace": "^2.0.0",
+    "rollup-plugin-stylus-css-modules": "^1.5.0",
+    "rollup-plugin-uglify": "^4.0.0",
+    "rollup-plugin-vue": "^4.1.4",
     "semver": "^5.3.0",
     "shelljs": "^0.7.6",
     "stylus": "^0.54.5",
