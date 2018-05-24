@@ -1,7 +1,7 @@
 /**
  * better-scroll vue封装
  * @Author momoko
- * @Date 2017/10/13
+ * @Date 2018/05
  */
 
 <template>
@@ -152,15 +152,15 @@ export default {
     autoUpdate: {
       // 自动刷新高度:适用于简单场景，复杂场景请使用updateData/refreshData
       type: Boolean,
-      default: true,
+      default: false,
     },
     updateData: {
-      // 引起更新加载状态的数据（下拉刷新/上拉加载相关的数据）
+      // 引起更新上拉/下拉加载状态的数据（下拉刷新/上拉加载相关的数据）
       type: Array,
       default: null,
     },
     refreshData: {
-      // 引起刷新高度的数据
+      // 引起刷新高度的数据（不包含 updateData 内的数据）
       type: Array,
       default: null,
     },
@@ -195,14 +195,15 @@ export default {
       this.update()
     },
     async refreshData () {
+      if (this.updateState) return
+
       await this.$nextTick()
       this.refresh()
     },
   },
-  created () {
-    this.pullDownInitTop = -50
-  },
   async mounted () {
+    this.pullDownInitTop = parseInt(getComputedStyle(this.$refs.pulldown).top) || -50
+
     await this.$nextTick()
     this.initScroll()
 
@@ -308,6 +309,10 @@ export default {
     },
     // 更新加载状态，下拉/下拉成功后使用
     async update (final) {
+      if (this.updateState) return
+
+      this.updateState = true // 正在update状态
+
       if (this.pullDown && this.pullDownNow) {
         // 下拉刷新触发成功后
         this.pullDownNow = false
@@ -330,6 +335,8 @@ export default {
       }
       await this.$nextTick()
       this.refresh()
+
+      this.updateState = false
     },
     /**
      * 滚动到指定位置
@@ -372,7 +379,7 @@ export default {
   .pulldown-wrapper {
     position absolute
     left 0
-    top -50px
+    top -50px; /*no*/
     width 100%
     display flex
     justify-content center
@@ -385,7 +392,7 @@ export default {
     }
     .after-trigger {
       width 100%
-      height 40px
+      height 40px; /*no*/
       display flex
       justify-content center
       align-items center

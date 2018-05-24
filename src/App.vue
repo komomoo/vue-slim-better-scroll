@@ -2,8 +2,24 @@
   <div id="app">
     <header class="header" @click="scrollToTop">点我回到顶部</header>
 
+    <!-- 简单场景 -->
     <Scroll
       ref="scroll"
+      :autoUpdate="true"
+      class="content"
+      @pullingDown="loadRefresh"
+      @pullingUp="loadMore">
+      <ul>
+        <li v-for="(item, index) in list" :key="index">{{ item }}</li>
+      </ul>
+    </Scroll>
+
+    <!-- 复杂场景 -->
+    <Scroll
+      v-if="false"
+      ref="scroll"
+      :updateData="[list]"
+      :refreshData="[]"
       class="content"
       @pullingDown="loadRefresh"
       @pullingUp="loadMore">
@@ -27,9 +43,12 @@ export default {
   data () {
     return {
       list: [],
-      page: 1,
-      pageSize: 10,
     }
+  },
+  created () {
+    // 不会引起DOM变化的数据在此定义
+    this.page = 1
+    this.pageSize = 10
   },
   mounted () {
     this.loadRefresh()

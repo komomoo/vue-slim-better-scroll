@@ -1,7 +1,7 @@
 # vue-slim-better-scroll
 > 开箱即用的/渐进式的 vue移动端滚动组件/插件，基于[better-scroll](https://github.com/ustbhuangyi/better-scroll)
 
-## 特性
+## ✨ 特性
 * **极简使用**
   * 零配置/渐进式配置
   * 自动刷新滚动高度
@@ -10,16 +10,17 @@
 * **更好体验**
   * 滚动内容小于滚动视口时，也可以滚动/回弹/下拉刷新/上拉加载
   * 多次下拉刷新节流
+  * 适配flexible
   * 多处细节改进
 
 
-## 示例
+## 🐠 示例
 [Demo](https://wannaxiao.github.io/vue-slim-better-scroll/)
 
 [Demo示例代码](https://github.com/wannaxiao/vue-slim-better-scroll/blob/master/src/App.vue)
 
 
-## 快速开始
+## 🚀 快速开始
 1. 安装 vue-slim-better-scroll
 ``` js
 // 使用yarn：
@@ -51,17 +52,29 @@ export default {
 ```
 
 
-3. 极简使用它，请参考[Demo示例代码](https://github.com/wannaxiao/vue-slim-better-scroll/blob/master/src/App.vue)
+3. 使用它，请参考[Demo示例代码](https://github.com/wannaxiao/vue-slim-better-scroll/blob/master/src/App.vue)
 ``` html
+<!-- 简单场景 -->
 <Scroll
   ref="scroll"
+  :autoUpdate="true"
+  @pullingDown="loadRefresh"
+  @pullingUp="loadMore">
+    <!-- 滚动的内容 -->
+</Scroll>
+
+<!-- 复杂场景 -->
+<Scroll
+  ref="scroll"
+  :updateData="[data]"
+  :refreshData="[]"
   @pullingDown="loadRefresh"
   @pullingUp="loadMore">
     <!-- 滚动的内容 -->
 </Scroll>
 ```
 
-## API文档
+## 🔌 API文档
 ### Props
 参数 | 说明 | 类型 | 默认值
 |---|---|---|---|
@@ -79,9 +92,9 @@ startY | 纵轴方向初始化位置 | Number | 0
 bounce | 回弹效果 | Boolean | true
 bounceTime | 回弹时间 | Number | 600
 preventDefaultException | [不阻止默认行为](https://ustbhuangyi.github.io/better-scroll/doc/zh-hans/options.html#preventdefaultexception) | Object | {tagName: /^(INPUT|TEXTAREA|BUTTON|SELECT)$/}
-autoUpdate | 自动更新高度。原理为深监视 this.$parent.$data 自动调用 update()，适用于简单场景.复杂场景请使用updateData/refreshData 或手动调用update()/refresh() | Boolean | true
-updateData | 引起更新加载状态的数据（下拉刷新/上拉加载相关的数据）。设置此项时，请将 autoUpdate 设置为 false | Array | null
-refreshData | 引起刷新高度的数据 | Array | null
+autoUpdate | 自动更新高度。原理为深监视 this.$parent.$data 自动调用 update()，适用于简单场景。复杂场景请使用updateData/refreshData 或手动调用update()/refresh() | Boolean | false
+updateData | 引起更新上拉/下拉加载状态的数据（下拉刷新/上拉加载相关的数据）。设置此项时，autoUpdate 应设置为 false | Array | null
+refreshData | 引起刷新高度的数据（不包含 updateData 内的数据） | Array | null
 
 ### Methods
 方法名 | 说明 | 参数
