@@ -4,6 +4,8 @@
 
 const path = require('path')
 
+const isPage = process.env.CONFIG_ENV==='page'
+
 module.exports = {
   dev: {
 
@@ -44,8 +46,8 @@ module.exports = {
 
   build: {
     // Paths
-    assetsRoot: path.resolve(__dirname, '../dist'),
-    assetsPublicPath: '/',
+    assetsRoot: isPage ? path.resolve(__dirname, '../page') : path.resolve(__dirname, '../dist'),
+    assetsPublicPath: isPage ? './' : '/',
 
     /**
      * Source Maps
@@ -59,7 +61,7 @@ module.exports = {
     // Surge or Netlify already gzip all static assets for you.
     // Before setting to `true`, make sure to:
     // npm install --save-dev compression-webpack-plugin
-    productionGzip: false,
+    productionGzip: isPage ? true : false,
     productionGzipExtensions: ['js', 'css'],
 
     // Run the build command with an extra argument to
