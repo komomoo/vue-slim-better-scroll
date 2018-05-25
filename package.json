@@ -1,6 +1,6 @@
 {
   "name": "vue-slim-better-scroll",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "开箱即用的/渐进式的vue移动端滚动组件/插件，基于better-scroll",
   "author": "momoko <928701977@qq.com>",
   "license": "MIT",
@@ -29,7 +29,9 @@
     "lint": "eslint --ext .js,.vue src test/unit",
     "build": "node build/build.js",
     "build:rollup": "rollup -c rollup/index.js",
-    "build:page": "CONFIG_ENV=page node build/build.js"
+    "build:page": "CONFIG_ENV=page node build/build.js",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
   },
   "dependencies": {
     "better-scroll": "^1.10.3",
@@ -94,6 +96,7 @@
     "vue-loader": "^13.3.0",
     "vue-style-loader": "^3.0.1",
     "vue-template-compiler": "^2.5.2",
+    "vuepress": "^0.9.0",
     "webpack": "^3.6.0",
     "webpack-bundle-analyzer": "^2.9.0",
     "webpack-dev-server": "^2.9.1",
