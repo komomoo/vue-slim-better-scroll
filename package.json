@@ -1,6 +1,6 @@
 {
   "name": "vue-slim-better-scroll",
-  "version": "1.2.1",
+  "version": "1.2.3",
   "description": "开箱即用的/渐进式的vue移动端滚动组件/插件，基于better-scroll",
   "author": "momoko <928701977@qq.com>",
   "license": "MIT",
@@ -34,10 +34,10 @@
     "docs:build": "vuepress build docs"
   },
   "dependencies": {
-    "better-scroll": "^1.10.3",
-    "vue": "^2.5.2"
+    "better-scroll": "^1.10.3"
   },
   "devDependencies": {
+    "vue": "^2.5.2",
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.22.1",
     "babel-eslint": "^8.2.1",
