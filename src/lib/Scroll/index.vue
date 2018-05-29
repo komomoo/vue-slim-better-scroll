@@ -202,7 +202,7 @@ export default {
     },
   },
   async mounted () {
-    this.pullDownInitTop = parseInt(getComputedStyle(this.$refs.pulldown).top) || -50
+    this.pullDownInitTop = parseInt(this.$refs.pulldown && getComputedStyle(this.$refs.pulldown).top) || -50
 
     await this.$nextTick()
     this.initScroll()
