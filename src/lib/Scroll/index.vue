@@ -5,10 +5,10 @@
  */
 
 <template>
-  <div ref="scroll" class="scroll">
+  <div ref="scroll" :class="c()">
 
-    <div class="scroll-wrapper">
-      <div ref="scrollContent" class="scroll-content">
+    <div :class="c('__wrapper')">
+      <div ref="scrollContent">
         <slot/>
       </div>
 
@@ -17,11 +17,11 @@
         :pullUpNow="pullUpNow"
         name="pullup"
       >
-        <div v-if="pullUp" class="pullup-wrapper">
-          <div v-if="!pullUpNow" class="before-trigger">
+        <div v-if="pullUp" :class="c('__pullup')">
+          <div v-if="!pullUpNow">
             <span>{{ pullUpTxt }}</span>
           </div>
-          <div v-else class="after-trigger">
+          <div v-else>
             <Loading/>
           </div>
         </div>
@@ -36,12 +36,12 @@
       :bubbleY="bubbleY"
       name="pulldown"
     >
-      <div v-if="pullDown" ref="pulldown" :style="pullDownStyle" class="pulldown-wrapper">
-        <div v-if="pullDownBefore" class="before-trigger">
+      <div v-if="pullDown" ref="pulldown" :style="pullDownStyle" :class="c('__pulldown')">
+        <div v-if="pullDownBefore" :class="c('__pulldown__before')">
           <Bubble :y="bubbleY"/>
         </div>
-        <div v-else class="after-trigger">
-          <div v-if="pullDownNow" class="loading">
+        <div v-else :class="c('__pulldown__after')">
+          <div v-if="pullDownNow">
             <Loading/>
           </div>
           <div v-else><span>{{ pullDownTxt }}</span></div>
@@ -56,6 +56,7 @@
 import BScroll from 'better-scroll'
 import Loading from './Loading'
 import Bubble from './Bubble'
+import mixin from './mixins'
 import { timeout } from './utils'
 
 export default {
@@ -64,6 +65,7 @@ export default {
     Loading,
     Bubble,
   },
+  mixins: [mixin],
   props: {
     probeType: {
       // 滚动事件监听类型
@@ -357,26 +359,31 @@ export default {
 </script>
 
 <style lang="stylus">
-.scroll {
+$ = vue-slim-better-scroll
+
+.{$} {
   width 100%
   height 100%
   overflow hidden
   box-sizing border-box
   position relative
-  .scroll-wrapper {
+
+  &__wrapper {
     position relative
     z-index 1
-    .pullup-wrapper {
-      width 100%
-      height 50px
-      display flex
-      justify-content center
-      align-items center
-      font-size 14px
-      color rgb(153, 153, 153)
-    }
   }
-  .pulldown-wrapper {
+
+  &__pullup {
+    width 100%
+    height 50px
+    display flex
+    justify-content center
+    align-items center
+    font-size 14px
+    color rgb(153, 153, 153)
+  }
+
+  &__pulldown {
     position absolute
     left 0
     top -50px; /*no*/
@@ -387,10 +394,12 @@ export default {
     transition all
     font-size 14px
     color rgb(153, 153, 153)
-    .before-trigger {
+
+    &__before {
       display flex
     }
-    .after-trigger {
+
+    &__after {
       width 100%
       height 40px; /*no*/
       display flex

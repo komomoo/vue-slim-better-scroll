@@ -1,19 +1,22 @@
 <template>
-  <div class="loading-container">
+  <div :class="c('-loading-container')">
     <img src="./loading.gif">
   </div>
 </template>
 <script type="text/ecmascript-6">
-const COMPONENT_NAME = 'loading'
+import mixin from '../mixins'
 
 export default {
-  name: COMPONENT_NAME,
+  name: 'Loading',
+  mixins: [mixin],
 }
 </script>
 <style lang="stylus">
-  .loading-container
-    img
-      width: 20px
-      height: 20px
-      display: block
+$ = vue-slim-better-scroll
+
+.{$}-loading-container
+  > img
+    width: 20px
+    height: 20px
+    display: block
 </style>
