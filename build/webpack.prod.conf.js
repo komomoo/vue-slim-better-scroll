@@ -31,6 +31,14 @@ const webpackConfig = merge(baseWebpackConfig, {
     libraryTarget: 'umd',
     umdNamedDefine: true
   },
+  externals : {
+    'better-scroll': {
+      root: 'BScroll',
+      commonjs: 'better-scroll',
+      commonjs2: 'better-scroll',
+      amd: 'better-scroll'
+    }
+  },
   plugins: [
     new UglifyJsPlugin({
       uglifyOptions: {
