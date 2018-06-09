@@ -111,7 +111,7 @@ scrollTo | 滚动到指定的位置 | (x:Number, y:Number, time:Number) <br/> 1.
 scrollToElement | 滚动到指定的目标元素 | (el, time, offsetX , offsetY )接收4个参数 详情请查看: [scrollToElement](https://ustbhuangyi.github.io/better-scroll/doc/zh-hans/api.html#scrolltoelementel-time-offsetx-offsety-easing)
 destroy | 销毁 better-scroll，解绑事件
 refresh | 刷新滚动高度（当页面无法滚动时，可尝试调用此方法）
-update | 更新加载状态，下拉/下拉成功后使用。当 autoUpdate 为 true 时 vue-slim-better-scroll 会在恰当的时候自动调用该方法。当上拉加载到最后一页/需要触发停止上拉加载时，需要手动调用它 | (final:Boolean) 表明pullUp上拉加载是否到了最底部
+update | 更新加载状态，下拉/下拉成功后使用。当 autoUpdate 为 true 时 vue-slim-better-scroll 会在恰当的时候自动调用该方法。当上拉加载到最后一页/需要触发停止上拉加载时，需要手动调用它 | (final:Boolean) 表明pullUp上拉加载是否到了最底部。下拉刷新成功后该值会自动 false。也可传入 false 手动声明不是最后一页
 
 ### Events
 事件名 | 说明 | 回调参数

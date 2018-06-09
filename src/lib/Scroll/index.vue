@@ -286,7 +286,7 @@ export default {
     _initPullUp () {
       this.scroll.on('pullingUp', () => {
         if (this.pullUpFinally) {
-          this.scroll.closePullUp()
+          this.scroll.finishPullUp()
         } else {
           this.pullUpNow = true
           this.$emit('pullingUp')
@@ -327,14 +327,14 @@ export default {
         this.scroll.openPullDown(this.pullDownConfig)
 
         this.pullUpFinally = false
-        this.pullUp && this.scroll.openPullUp(this.pullUpConfig)
       } else if (this.pullUp && this.pullUpNow) {
         // 上拉加载触发成功后
         this.pullUpNow = false
         this.scroll.finishPullUp()
-
-        this.pullUpFinally = !!final
       }
+
+      typeof final !== 'undefined' && (this.pullUpFinally = !!final)
+
       await this.$nextTick()
       this.refresh()
 
