@@ -18,15 +18,16 @@ then
 
   # commit
   npm version $VERSION --no-git-tag-version
+  git add -A
+  git commit -m "build: release $VERSION"
   git tag v$VERSION
-  git commit -am "build: release $VERSION"
+  git push origin master
 
   # merge
   git checkout gh-pages
   git rebase master
   git push origin gh-pages
   git checkout master
-  git push origin master
 
   # publish
   npm publish
