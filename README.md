@@ -80,3 +80,7 @@ export default {
     <!-- 滚动的内容 -->
 </Scroll>
 ```
+
+[查看完整文档](https://wannaxiao.github.io/vue-slim-better-scroll/docs/dist/)
+
+如果它对你有所帮助，可以点一下 star ～ 😊
