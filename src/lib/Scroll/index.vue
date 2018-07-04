@@ -356,11 +356,11 @@ export default {
     },
     // 滚动到顶部
     scrollToTop () {
-      this.scrollTo(0, 0)
+      this.scroll && this.scrollTo(0, 0)
     },
     // 滚动到底部
     scrollToBottom () {
-      this.scrollTo(0, this.scroll.maxScrollY)
+      this.scroll && this.scrollTo(0, this.scroll.maxScrollY)
     },
   },
 }
