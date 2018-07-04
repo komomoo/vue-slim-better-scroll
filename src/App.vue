@@ -28,6 +28,8 @@
       </ul>
     </Scroll>
 
+    <footer class="footer" @click="scrollToBottom">点我回到底部</footer>
+
   </div>
 </template>
 
@@ -56,7 +58,11 @@ export default {
   methods: {
     // 滚动到顶部
     scrollToTop () {
-      this.$refs.scroll.scrollTo(0, 0)
+      this.$refs.scroll.scrollToTop()
+    },
+    // 滚动到底部
+    scrollToBottom () {
+      this.$refs.scroll.scrollToBottom()
     },
     // 加载刷新数据
     async loadRefresh () {
@@ -124,9 +130,13 @@ html, body {
     text-align center
     color #fff
     background $baseColor
-    .ios & {
-      padding-top 20px
-    }
+  }
+  .footer {
+    flex 0 0 $headerHeight
+    line-height $headerHeight
+    text-align center
+    color #fff
+    background $baseColor
   }
   .content {
     flex 1

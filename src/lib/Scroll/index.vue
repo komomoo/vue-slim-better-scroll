@@ -354,6 +354,14 @@ export default {
     scrollToElement () {
       this.scroll && this.scroll.scrollToElement.apply(this.scroll, arguments)
     },
+    // 滚动到顶部
+    scrollToTop () {
+      this.scrollTo(0, 0)
+    },
+    // 滚动到底部
+    scrollToBottom () {
+      this.scrollTo(0, this.scroll.maxScrollY)
+    },
   },
 }
 </script>
