@@ -84,3 +84,9 @@ export default {
 [查看完整文档](https://wannaxiao.github.io/vue-slim-better-scroll/docs/dist/)
 
 如果它对你有所帮助，可以点一下 star ～ 😊
+
+## License
+
+[MIT](http://opensource.org/licenses/MIT)
+
+Copyright (c) 2018-present, momoko
