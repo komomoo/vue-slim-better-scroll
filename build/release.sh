@@ -21,7 +21,7 @@ then
   git add -A
   git commit -m "build: release $VERSION"
   git tag v$VERSION
-  git push origin master
+  git push --tag origin master
 
   # merge
   git checkout gh-pages
