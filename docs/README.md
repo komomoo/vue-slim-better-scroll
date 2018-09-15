@@ -119,7 +119,7 @@ update | 更新加载状态，下拉/下拉成功后使用。当 autoUpdate 为 
 事件名 | 说明 | 回调参数
 |---|---|---|
 scroll | 触发时机：滚动过程中，具体时机取决于选项中的 probeType (触发事件在参数中需要开启 **listenScroll**，该参数默认为 false ) | (pos:Object) 滚动的实时坐标
-beforeScrollStart | 触发时机：滚动开始之前 (触发事件在参数中需要开启 **listenBeforeScroll**，该参数默认为 false )
+beforeScrollStart | 触发时机：滚动开始之前 (触发事件在参数中需要开启 **listenBeforeScrollStart**，该参数默认为 false )
 pullingDown | 触发时机：在一次下拉刷新的动作后，这个时机一般用来去后端请求数据。(触发事件在参数中需要开启 **pullDown**，该参数默认为 true )
 pullingUp | 触发时机：在一次下拉刷新的动作后，这个时机一般用来去后端请求数据。(触发事件在参数中需要开启 **pullUp**，该参数默认为 true )
 
