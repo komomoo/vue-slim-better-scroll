@@ -85,7 +85,7 @@ export default {
 |---|---|---|---|
 probeType | 派发scroll事件的条件 | Number | 1 |
 listenScroll | 是否监听滚动，开启后才能派发scroll事件| Boolean | false
-listenBeforeScroll | 是否监听滚动之前，开启后才能派发beforeScrollStart事件| Boolean | false
+listenBeforeScrollStart | 是否监听滚动之前，开启后才能派发beforeScrollStart事件| Boolean | false
 scrollX | 开启X轴滚动 | Boolean | false
 scrollY | 开启Y轴滚动 | Boolean | true
 scrollbar | 开启滚动条 | Boolean or Object | false

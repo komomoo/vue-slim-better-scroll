@@ -247,7 +247,7 @@ export default {
           this.$emit('scroll', pos)
         })
 
-      this.listenBeforeScroll &&
+      this.listenBeforeScrollStart &&
         this.scroll.on('beforeScrollStart', () => {
           this.$emit('beforeScrollStart')
         })
