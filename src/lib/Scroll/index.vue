@@ -311,11 +311,10 @@ export default {
     },
     // 更新加载状态，下拉/下拉成功后使用
     async update (final) {
-      if (this.updateState) return
-
-      this.updateState = true // 正在update状态
-
       if (this.pullDown && this.pullDownNow) {
+        if (this.pullDownUpdateState) return
+        this.pullDownUpdateState = true // 正在update状态
+
         // 下拉刷新触发成功后
         this.pullDownNow = false
         await timeout(this.bounceTime / 2) // 刷新成功hold
@@ -328,6 +327,9 @@ export default {
 
         this.pullUpFinally = false
       } else if (this.pullUp && this.pullUpNow) {
+        if (this.pullUpUpdateState) return
+        this.pullUpUpdateState = true // 正在update状态
+
         // 上拉加载触发成功后
         this.pullUpNow = false
         this.scroll.finishPullUp()
@@ -338,7 +340,8 @@ export default {
       await this.$nextTick()
       this.refresh()
 
-      this.updateState = false
+      this.pullDownUpdateState = false
+      this.pullUpUpdateState = false
     },
     /**
      * 滚动到指定位置
