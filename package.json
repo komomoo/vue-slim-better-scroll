@@ -32,7 +32,7 @@
     "build:page": "CONFIG_ENV=page node build/build.js",
     "dev:docs": "vuepress dev docs",
     "build:docs": "vuepress build docs",
-    "release": "sh build/release.sh"
+    "release": "node build/release"
   },
   "dependencies": {
     "better-scroll": "^1.13.2"
