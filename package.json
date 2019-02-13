@@ -2,7 +2,7 @@
   "name": "vue-slim-better-scroll",
   "version": "1.4.3",
   "description": "开箱即用的/渐进式的vue移动端滚动组件/插件，基于better-scroll",
-  "author": "momoko <928701977@qq.com>",
+  "author": "momoko <ko.momo@qq.com>",
   "license": "MIT",
   "private": false,
   "main": "dist/vue-slim-better-scroll.js",
