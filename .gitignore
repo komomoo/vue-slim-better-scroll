@@ -1,15 +1,8 @@
 .DS_Store
+.chache/
 node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+package-lock.json*
 /test/unit/coverage/
-!dist/
-
-# Editor directories and files
-.idea
-.vscode
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
