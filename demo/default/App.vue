@@ -5,7 +5,7 @@
     <!-- 简单场景 -->
     <Scroll
       ref="scroll"
-      :autoUpdate="true"
+      :auto-update="true"
       class="content"
       @pullingDown="loadRefresh"
       @pullingUp="loadMore">
@@ -18,8 +18,8 @@
     <Scroll
       v-if="false"
       ref="scroll"
-      :updateData="[list]"
-      :refreshData="[]"
+      :update-data="[list]"
+      :refresh-data="[]"
       class="content"
       @pullingDown="loadRefresh"
       @pullingUp="loadMore">
@@ -29,13 +29,12 @@
     </Scroll>
 
     <footer class="footer" @click="scrollToBottom">点我回到底部</footer>
-
   </div>
 </template>
 
 <script>
-import Scroll from './lib'
-import { timeout } from './lib/Scroll/utils'
+import Scroll from '../../src'
+import { timeout } from '../../src/Scroll/utils'
 
 export default {
   name: 'App',
