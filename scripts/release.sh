@@ -6,6 +6,7 @@ git checkout master
 yarn build
 yarn build:docs
 yarn build:demo
+yarn build:demo-complex
 
 # commit
 git add -A

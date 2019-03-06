@@ -20,19 +20,15 @@
   "main": "dist/vue-slim-better-scroll.min.js",
   "module": "dist/vue-slim-better-scroll.esm.min.js",
   "scripts": {
-    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
-    "start": "npm run dev",
-    "unit": "jest --config test/unit/jest.conf.js --coverage",
-    "test": "npm run unit",
-    "lint": "eslint --ext .js,.vue src test/unit",
-    "build": "node build/build.js",
-    "dev:demo": "parcel demo/complex/index.html -p 8080 --out-dir demo/complex/dist",
-    "build:demo": "rm -rf demo/complex/dist/ && parcel build demo/complex/index.html --out-dir demo/complex/dist --public-url ./",
-    "build:rollup": "rollup -c rollup/index.js",
-    "build:page": "CONFIG_ENV=page node build/build.js",
+    "build": "dio",
+    "lint": "eslint --fix --ext .js,.vue .",
+    "dev": "parcel demo/default/index.html -p 8080 --out-dir demo/default/dist",
+    "build:demo": "rm -rf demo/default/dist/ && parcel build demo/default/index.html --out-dir demo/default/dist --public-url ./",
+    "dev:demo-complex": "parcel demo/complex/index.html -p 8080 --out-dir demo/complex/dist",
+    "build:demo-complex": "rm -rf demo/complex/dist/ && parcel build demo/complex/index.html --out-dir demo/complex/dist --public-url ./",
     "dev:docs": "vuepress dev docs",
     "build:docs": "vuepress build docs",
-    "release": "node build/release"
+    "release": "sh scripts/release"
   },
   "eslintConfig": {
     "extends": [
