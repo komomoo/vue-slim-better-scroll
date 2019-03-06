@@ -6,23 +6,21 @@
 
 <template>
   <div ref="scroll" :class="c()">
-
     <div :class="c('__wrapper')">
       <div ref="scrollContent">
-        <slot/>
+        <slot />
       </div>
 
       <slot
         :pullUp="pullUp"
         :pullUpNow="pullUpNow"
-        name="pullup"
-      >
+        name="pullup">
         <div v-if="pullUp" :class="c('__pullup')">
           <div v-if="!pullUpNow">
             <span>{{ pullUpTxt }}</span>
           </div>
           <div v-else>
-            <Loading/>
+            <Loading />
           </div>
         </div>
       </slot>
@@ -34,21 +32,23 @@
       :pullDownBefore="pullDownBefore"
       :pullDownNow="pullDownNow"
       :bubbleY="bubbleY"
-      name="pulldown"
-    >
-      <div v-if="pullDown" ref="pulldown" :style="pullDownStyle" :class="c('__pulldown')">
+      name="pulldown">
+      <div
+        v-if="pullDown"
+        ref="pulldown"
+        :style="pullDownStyle"
+        :class="c('__pulldown')">
         <div v-if="pullDownBefore" :class="c('__pulldown__before')">
-          <Bubble :y="bubbleY"/>
+          <Bubble :y="bubbleY" />
         </div>
         <div v-else :class="c('__pulldown__after')">
           <div v-if="pullDownNow">
-            <Loading/>
+            <Loading />
           </div>
           <div v-else><span>{{ pullDownTxt }}</span></div>
         </div>
       </div>
     </slot>
-
   </div>
 </template>
 

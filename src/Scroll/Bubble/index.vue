@@ -1,5 +1,9 @@
 <template>
-  <canvas ref="bubble" :width="width" :height="height" :style="style"/>
+  <canvas
+    ref="bubble"
+    :width="width"
+    :height="height"
+    :style="style" />
 </template>
 
 <script>
