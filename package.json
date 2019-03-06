@@ -1,6 +1,6 @@
 {
   "name": "vue-slim-better-scroll",
-  "version": "1.4.4",
+  "version": "1.5.0",
   "description": "💇 开箱即用的/渐进式的 vue 移动端滚动组件/插件，基于 better-scroll",
   "author": "momoko <ko.momo@qq.com>",
   "license": "MIT",
@@ -28,7 +28,7 @@
     "build:demo-complex": "rm -rf demo/complex/dist/ && parcel build demo/complex/index.html --out-dir demo/complex/dist --public-url ./",
     "dev:docs": "vuepress dev docs",
     "build:docs": "vuepress build docs",
-    "release": "sh scripts/release"
+    "release": "sh scripts/release.sh"
   },
   "eslintConfig": {
     "extends": [

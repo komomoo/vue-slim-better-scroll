@@ -1,5 +1,5 @@
 /**
- * vue-slim-better-scroll v1.4.4
+ * vue-slim-better-scroll v1.5.0
  * Copyright (c) 2018-present, momoko <ko.momo@qq.com>
  * Released under the MIT License.
  */
@@ -1365,6 +1365,9 @@
 	      return refreshData;
 	    }()
 	  },
+	  activated: function activated() {
+	    this.refresh();
+	  },
 	  mounted: function () {
 	    var _mounted = asyncToGenerator(
 	    /*#__PURE__*/
@@ -1611,6 +1614,10 @@
 	    // 滚动到底部
 	    scrollToBottom: function scrollToBottom() {
 	      this.scroll && this.scrollTo(0, this.scroll.maxScrollY);
+	    },
+	    // 手动触发下拉刷新
+	    autoPullDownRefresh: function autoPullDownRefresh() {
+	      this.scroll && this.scroll.autoPullDownRefresh();
 	    }
 	  }
 	};
@@ -1625,7 +1632,7 @@
 	  /* style */
 	  const __vue_inject_styles__$2 = function (inject) {
 	    if (!inject) return
-	    inject("data-v-2d345951_0", { source: ".vue-slim-better-scroll{width:100%;height:100%;overflow:hidden;box-sizing:border-box;position:relative}.vue-slim-better-scroll__wrapper{position:relative;z-index:1}.vue-slim-better-scroll__pullup{width:100%;height:50px;display:flex;justify-content:center;align-items:center;font-size:14px;color:#999}.vue-slim-better-scroll__pulldown{position:absolute;left:0;top:-50px;width:100%;display:flex;justify-content:center;align-items:center;transition:all;font-size:14px;color:#999}.vue-slim-better-scroll__pulldown__before{display:flex}.vue-slim-better-scroll__pulldown__after{width:100%;height:40px;display:flex;justify-content:center;align-items:center}", map: undefined, media: undefined });
+	    inject("data-v-71302b74_0", { source: ".vue-slim-better-scroll{width:100%;height:100%;overflow:hidden;box-sizing:border-box;position:relative}.vue-slim-better-scroll__wrapper{position:relative;z-index:1}.vue-slim-better-scroll__pullup{width:100%;height:50px;display:flex;justify-content:center;align-items:center;font-size:14px;color:#999}.vue-slim-better-scroll__pulldown{position:absolute;left:0;top:-50px;width:100%;display:flex;justify-content:center;align-items:center;transition:all;font-size:14px;color:#999}.vue-slim-better-scroll__pulldown__before{display:flex}.vue-slim-better-scroll__pulldown__after{width:100%;height:40px;display:flex;justify-content:center;align-items:center}", map: undefined, media: undefined });
 
 	  };
 	  /* scoped */
