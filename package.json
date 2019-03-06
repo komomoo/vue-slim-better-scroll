@@ -1,7 +1,7 @@
 {
   "name": "vue-slim-better-scroll",
   "version": "1.4.4",
-  "description": "💇 开箱即用的/渐进式的vue移动端滚动组件/插件，基于better-scroll",
+  "description": "💇 开箱即用的/渐进式的 vue 移动端滚动组件/插件，基于 better-scroll",
   "author": "momoko <ko.momo@qq.com>",
   "license": "MIT",
   "private": false,
@@ -17,7 +17,7 @@
     "vue-scroller",
     "simple-scroll"
   ],
-  "main": "dist/vue-slim-better-scroll.min.js",
+  "main": "dist/vue-slim-better-scroll.common.min.js",
   "module": "dist/vue-slim-better-scroll.esm.min.js",
   "scripts": {
     "build": "dio",
@@ -48,6 +48,11 @@
     "Android >= 4.4",
     "IE >= 9"
   ],
+  "dioConfig": {
+    "external": [
+      "better-scroll"
+    ]
+  },
   "dependencies": {
     "better-scroll": "^1.13.2"
   },
@@ -55,7 +60,7 @@
     "@babel/core": "^7.3.3",
     "@momoko/babel-preset-vue": "^0.2.0",
     "@momoko/eslint-config-vue": "^0.2.2",
-    "dio-bundler": "^0.1.1",
+    "dio-bundler": "^0.2.0",
     "parcel-bundler": "^1.11.0",
     "vue": "^2.6.7",
     "vue-hot-reload-api": "^2.3.2",
