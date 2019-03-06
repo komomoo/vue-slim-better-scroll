@@ -203,6 +203,9 @@ export default {
       this.refresh()
     },
   },
+  activated () {
+    this.refresh()
+  },
   async mounted () {
     this.pullDownInitTop = parseInt(this.$refs.pulldown && getComputedStyle(this.$refs.pulldown).top) || -50
 
