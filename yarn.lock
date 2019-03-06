@@ -1148,7 +1148,7 @@ base@^0.11.1:
     mixin-deep "^1.2.0"
     pascalcase "^0.1.1"
 
-better-scroll@^1.13.2:
+better-scroll@^1.14.1:
   version "1.14.1"
   resolved "http://registry.npm.taobao.org/better-scroll/download/better-scroll-1.14.1.tgz#65109c502a750d49543ffbb4208f421b33705c2f"
   integrity sha1-ZRCcUCp1DUlUP/u0II9CGzNwXC8=

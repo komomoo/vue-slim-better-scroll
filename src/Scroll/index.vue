@@ -365,6 +365,10 @@ export default {
     scrollToBottom () {
       this.scroll && this.scrollTo(0, this.scroll.maxScrollY)
     },
+    // 手动触发下拉刷新
+    autoPullDownRefresh () {
+      this.scroll && this.scroll.autoPullDownRefresh()
+    },
   },
 }
 </script>

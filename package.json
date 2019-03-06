@@ -54,7 +54,7 @@
     ]
   },
   "dependencies": {
-    "better-scroll": "^1.13.2"
+    "better-scroll": "^1.14.1"
   },
   "devDependencies": {
     "@babel/core": "^7.3.3",
