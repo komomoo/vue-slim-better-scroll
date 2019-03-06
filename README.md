@@ -12,29 +12,27 @@
 * **更好体验**
   * 滚动内容小于滚动视口时，也可以滚动/回弹/下拉刷新/上拉加载
   * 多次下拉刷新节流
-  * 适配 flexible
   * 多处细节改进
+* **更小体积**
+  * v1.5.0+ 使用 [dio](https://github.com/wannaxiao/dio) 构建，仅 25k (旧版本为 webpack 构建，体积 47k)
 
 ## 🐠 示例&文档
 
-[Demo](https://wannaxiao.github.io/vue-slim-better-scroll/page/)
+[Demo](https://wannaxiao.github.io/vue-slim-better-scroll/demo/default/dist/)
 
-[Demo 示例代码](https://github.com/wannaxiao/vue-slim-better-scroll/blob/master/src/App.vue)
+[Demo 示例代码](https://github.com/wannaxiao/vue-slim-better-scroll/blob/master/demo/default/App.vue)
 
 [查看文档](https://wannaxiao.github.io/vue-slim-better-scroll/docs/dist/)
 
 ## 🚀 快速开始
 
-1.  安装 vue-slim-better-scroll
+1.  安装
 
-```js
-// 使用yarn：
-yarn add vue-slim-better-scroll
-// 或使用npm：
-npm i -S vue-slim-better-scroll
+```bash
+yarn add vue-slim-better-scroll # 或 npm i -S vue-slim-better-scroll
 ```
 
-2.  引入 vue-slim-better-scroll
+2.  引入
 
 * 插件形式全局引入
 
@@ -58,7 +56,7 @@ export default {
 }
 ```
 
-3.  使用它，请参考[Demo 示例代码](https://github.com/wannaxiao/vue-slim-better-scroll/blob/master/src/App.vue)
+3.  使用它，请参考[Demo 示例代码](https://github.com/wannaxiao/vue-slim-better-scroll/blob/master/demo/default/App.vue)
 
 ```html
 <!-- 简单场景 -->
@@ -83,7 +81,9 @@ export default {
 
 [查看完整文档](https://wannaxiao.github.io/vue-slim-better-scroll/docs/dist/)
 
-如果它对你有所帮助，可以点一下 star ～ 😊
+<br>
+<br>
+😉😘 如果它对你有所帮助，可以点一下 <b>⭐️<a href="#">Star</a></b> ~
 
 ## License
 
