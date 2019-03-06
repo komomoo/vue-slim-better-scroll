@@ -3,23 +3,28 @@
     <header class="header" @click="scrollToTop">Home</header>
 
     <Scroll
-      v-if="false"
       ref="scroll"
-      :updateData="[list]"
-      :refreshData="[]"
+      :update-data="[list]"
+      :refresh-data="[]"
       class="content"
       @pullingDown="loadRefresh"
       @pullingUp="loadMore">
       <ul>
-        <li v-for="(item, index) in list" :key="index">{{ item }}</li>
+        <li
+          v-for="(item, index) in list"
+          :key="index"
+          @click="goDetail(index)">
+          {{ item }}
+          <i class="allow-right-icon"></i>
+        </li>
       </ul>
     </Scroll>
   </div>
 </template>
 
 <script>
-import Scroll from '../../../src/lib'
-import { timeout } from '../../../src/lib/Scroll/utils'
+import Scroll from '../../../src'
+import { timeout } from '../../../src/Scroll/utils'
 
 export default {
   name: 'App',
@@ -81,62 +86,14 @@ export default {
         return false
       }
     },
+
+    // 跳转详情页
+    goDetail (id) {
+      this.$router.push({
+        name: 'detail',
+        params: { id },
+      })
+    },
   },
 }
 </script>
-
-<style lang="stylus">
-$headerHeight = 44px
-$baseColor = #6A9FB5
-$bgColor = #FAFAFA
-
-* {
-  padding 0
-  margin 0
-}
-
-html, body {
-  width 100%
-  height 100%
-  overflow hidden
-}
-
-#app {
-  width 100%
-  height 100%
-  overflow hidden
-  box-sizing border-box
-  display flex
-  flex-direction column
-  .header {
-    flex 0 0 $headerHeight
-    line-height $headerHeight
-    text-align center
-    color #fff
-    background $baseColor
-  }
-  .footer {
-    flex 0 0 $headerHeight
-    line-height $headerHeight
-    text-align center
-    color #fff
-    background $baseColor
-  }
-  .content {
-    flex 1
-    background-color $bgColor
-    overflow hidden
-    box-sizing border-box
-    ul {
-      li {
-        background #fff
-        height 44px
-        line-height 44px
-        text-align center
-        color $baseColor
-        border-bottom 1px solid #eee
-      }
-    }
-  }
-}
-</style>
