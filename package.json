@@ -22,9 +22,9 @@
   "scripts": {
     "build": "dio",
     "lint": "eslint --fix --ext .js,.vue .",
-    "dev": "parcel demo/default/index.html -p 8080 --out-dir demo/default/dist",
+    "dev": "parcel demo/default/index.html -p 8080 --out-dir demo/default/dev",
     "build:demo": "rm -rf demo/default/dist/ && parcel build demo/default/index.html --out-dir demo/default/dist --public-url ./",
-    "dev:demo-complex": "parcel demo/complex/index.html -p 8080 --out-dir demo/complex/dist",
+    "dev:demo-complex": "parcel demo/complex/index.html -p 8080 --out-dir demo/complex/dev",
     "build:demo-complex": "rm -rf demo/complex/dist/ && parcel build demo/complex/index.html --out-dir demo/complex/dist --public-url ./",
     "dev:docs": "vuepress dev docs",
     "build:docs": "vuepress build docs",
