@@ -1,5 +1,5 @@
 /**
- * vue-slim-better-scroll v1.5.0
+ * vue-slim-better-scroll v1.5.1
  * Copyright (c) 2018-present, momoko <ko.momo@qq.com>
  * Released under the MIT License.
  */
