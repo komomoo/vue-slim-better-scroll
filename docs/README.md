@@ -23,6 +23,8 @@ sidebar: auto
 
 ## 🐠 示例
 
+<img src="./assets/demo.gif" width="320" style="margin-top: 20px;">
+
 [Demo](https://wannaxiao.github.io/vue-slim-better-scroll/demo/default/dist/)
 
 [Demo示例代码](https://github.com/wannaxiao/vue-slim-better-scroll/blob/master/demo/default/App.vue)

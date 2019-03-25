@@ -18,6 +18,8 @@
 
 ## 🐠 示例&文档
 
+<img src="./docs/assets/demo.gif" width="320" style="margin-top: 20px;">
+
 [Demo](https://wannaxiao.github.io/vue-slim-better-scroll/demo/default/dist/)
 
 [Demo 示例代码](https://github.com/wannaxiao/vue-slim-better-scroll/blob/master/demo/default/App.vue)
