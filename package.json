@@ -1,7 +1,7 @@
 {
   "name": "vue-slim-better-scroll",
   "version": "1.5.0",
-  "description": "💇 开箱即用的/渐进式的 vue 移动端滚动组件/插件，基于 better-scroll",
+  "description": "💇‍ 开箱即用的/渐进式的 vue 移动端滚动组件",
   "author": "momoko <ko.momo@qq.com>",
   "license": "MIT",
   "private": false,
