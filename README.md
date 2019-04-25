@@ -15,6 +15,7 @@
   * 多处细节改进
 * **更小体积**
   * v1.5.0+ 使用 [dio](https://github.com/wannaxiao/dio) 构建，仅 25k (旧版本为 webpack 构建，体积 47k)
+  * v1.6.0+ 抛弃 gif，使用 css 重构 Loading。体积近一步减小，仅 21k
 
 ## 🐠 示例&文档
 
