@@ -101,55 +101,56 @@ export default {
 </script>
 
 <style lang="stylus">
-$headerHeight = 44px
-$baseColor = #6A9FB5
-$bgColor = #FAFAFA
-
+$headerHeight = 44px;
+$baseColor = #6A9FB5;
+$bgColor = #FAFAFA;
 * {
-  padding 0
-  margin 0
+  padding: 0;
+  margin: 0;
 }
-
 html, body {
-  width 100%
-  height 100%
-  overflow hidden
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
-
 #app {
-  width 100%
-  height 100%
-  overflow hidden
-  box-sizing border-box
-  display flex
-  flex-direction column
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+
   .header {
-    flex 0 0 $headerHeight
-    line-height $headerHeight
-    text-align center
-    color #fff
-    background $baseColor
+    flex: 0 0 $headerHeight;
+    line-height: $headerHeight;
+    text-align: center;
+    color: #fff;
+    background: $baseColor;
   }
+
   .footer {
-    flex 0 0 $headerHeight
-    line-height $headerHeight
-    text-align center
-    color #fff
-    background $baseColor
+    flex: 0 0 $headerHeight;
+    line-height: $headerHeight;
+    text-align: center;
+    color: #fff;
+    background: $baseColor;
   }
+
   .content {
-    flex 1
-    background-color $bgColor
-    overflow hidden
-    box-sizing border-box
+    flex: 1;
+    background-color: $bgColor;
+    overflow: hidden;
+    box-sizing: border-box;
+
     ul {
       li {
-        background #fff
-        height 44px
-        line-height 44px
-        text-align center
-        color $baseColor
-        border-bottom 1px solid #eee
+        background: #fff;
+        height: 44px;
+        line-height: 44px;
+        text-align: center;
+        color: $baseColor;
+        border-bottom: 1px solid #eee;
       }
     }
   }

@@ -377,52 +377,51 @@ export default {
 </script>
 
 <style lang="stylus">
-$ = vue-slim-better-scroll
-
+$ = vue-slim-better-scroll;
 .{$} {
-  width 100%
-  height 100%
-  overflow hidden
-  box-sizing border-box
-  position relative
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  position: relative;
 
   &__wrapper {
-    position relative
-    z-index 1
+    position: relative;
+    z-index: 1;
   }
 
   &__pullup {
-    width 100%
-    height 50px
-    display flex
-    justify-content center
-    align-items center
-    font-size 14px
-    color rgb(153, 153, 153)
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    color: rgb(153, 153, 153);
   }
 
   &__pulldown {
-    position absolute
-    left 0
-    top -50px; /*no*/
-    width 100%
-    display flex
-    justify-content center
-    align-items center
-    transition all
-    font-size 14px
-    color rgb(153, 153, 153)
+    position: absolute;
+    left: 0;
+    top: -50px; /* no */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all;
+    font-size: 14px;
+    color: rgb(153, 153, 153);
 
     &__before {
-      display flex
+      display: flex;
     }
 
     &__after {
-      width 100%
-      height 40px; /*no*/
-      display flex
-      justify-content center
-      align-items center
+      width: 100%;
+      height: 40px; /* no */
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 }
