@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.7.0"></a>
+# [1.7.0](https://github.com/wannaxiao/vue-slim-better-scroll/compare/v1.6.2...v1.7.0) (2019-05-18)
+
+
+### Features
+
+* add props: betterScrollOptions ([1b2f854](https://github.com/wannaxiao/vue-slim-better-scroll/commit/1b2f854))
+
+
+
 <a name="1.6.2"></a>
 ## [1.6.2](https://github.com/wannaxiao/vue-slim-better-scroll/compare/v1.6.1...v1.6.2) (2019-05-18)
 

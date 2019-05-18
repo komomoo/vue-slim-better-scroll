@@ -1,10 +1,48 @@
 /**
- * vue-slim-better-scroll v1.6.2
+ * vue-slim-better-scroll v1.7.0
  * Copyright (c) 2018-present, momoko <ko.momo@qq.com>
  * Released under the MIT License.
  */
 
 import BScroll from 'better-scroll';
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+var defineProperty = _defineProperty;
+
+function _objectSpread(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};
+    var ownKeys = Object.keys(source);
+
+    if (typeof Object.getOwnPropertySymbols === 'function') {
+      ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {
+        return Object.getOwnPropertyDescriptor(source, sym).enumerable;
+      }));
+    }
+
+    ownKeys.forEach(function (key) {
+      defineProperty(target, key, source[key]);
+    });
+  }
+
+  return target;
+}
+
+var objectSpread = _objectSpread;
 
 function createCommonjsModule(fn, module) {
 	return module = { exports: {} }, fn(module, module.exports), module.exports;
@@ -1277,6 +1315,11 @@ var script$2 = {
       type: Boolean,
       default: false
     },
+    betterScrollOptions: {
+      // 任何的 better-scroll 配置项，将合并在初始化 better-scroll 的配置中。注意：与 props 冲突的配置项将被 props 覆盖
+      type: Object,
+      default: null
+    },
     autoUpdate: {
       // 自动刷新高度:适用于简单场景，复杂场景请使用updateData/refreshData
       type: Boolean,
@@ -1417,7 +1460,7 @@ var script$2 = {
         this.$refs.scrollContent.style.minHeight = "".concat(this.$refs.scroll.getBoundingClientRect().height + 1, "px");
       }
 
-      var options = {
+      var options = objectSpread({}, this.betterScrollOptions, {
         probeType: this.probeType,
         click: this.click,
         scrollX: this.scrollX,
@@ -1430,7 +1473,8 @@ var script$2 = {
         bounceTime: this.bounceTime,
         preventDefaultException: this.preventDefaultException,
         mouseWheel: this.mouseWheel
-      };
+      });
+
       this.scroll = new BScroll(this.$refs.scroll, options);
       this.listenScroll && this.scroll.on('scroll', function (pos) {
         _this2.$emit('scroll', pos);
@@ -1632,7 +1676,7 @@ var __vue_staticRenderFns__$2 = [];
   /* style */
   const __vue_inject_styles__$2 = function (inject) {
     if (!inject) return
-    inject("data-v-2fcfe31c_0", { source: ".vue-slim-better-scroll{width:100%;height:100%;overflow:hidden;box-sizing:border-box;position:relative}.vue-slim-better-scroll__wrapper{position:relative;z-index:1}.vue-slim-better-scroll__pullup{width:100%;height:50px;display:-ms-flexbox;display:flex;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center;font-size:14px;color:#999}.vue-slim-better-scroll__pulldown{position:absolute;left:0;top:-50px;width:100%;display:-ms-flexbox;display:flex;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center;transition:all;font-size:14px;color:#999}.vue-slim-better-scroll__pulldown__before{display:-ms-flexbox;display:flex}.vue-slim-better-scroll__pulldown__after{width:100%;height:40px;display:-ms-flexbox;display:flex;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center}", map: undefined, media: undefined });
+    inject("data-v-caad05c4_0", { source: ".vue-slim-better-scroll{width:100%;height:100%;overflow:hidden;box-sizing:border-box;position:relative}.vue-slim-better-scroll__wrapper{position:relative;z-index:1}.vue-slim-better-scroll__pullup{width:100%;height:50px;display:-ms-flexbox;display:flex;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center;font-size:14px;color:#999}.vue-slim-better-scroll__pulldown{position:absolute;left:0;top:-50px;width:100%;display:-ms-flexbox;display:flex;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center;transition:all;font-size:14px;color:#999}.vue-slim-better-scroll__pulldown__before{display:-ms-flexbox;display:flex}.vue-slim-better-scroll__pulldown__after{width:100%;height:40px;display:-ms-flexbox;display:flex;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center}", map: undefined, media: undefined });
 
   };
   /* scoped */
