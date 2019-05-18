@@ -1,5 +1,5 @@
 /**
- * vue-slim-better-scroll v1.6.1
+ * vue-slim-better-scroll v1.6.2
  * Copyright (c) 2018-present, momoko <ko.momo@qq.com>
  * Released under the MIT License.
  */
@@ -1272,6 +1272,11 @@ var script$2 = {
         };
       }
     },
+    mouseWheel: {
+      // 启用 PC 鼠标滚轮
+      type: Boolean,
+      default: false
+    },
     autoUpdate: {
       // 自动刷新高度:适用于简单场景，复杂场景请使用updateData/refreshData
       type: Boolean,
@@ -1423,7 +1428,8 @@ var script$2 = {
         startY: this.startY,
         bounce: this.bounce,
         bounceTime: this.bounceTime,
-        preventDefaultException: this.preventDefaultException
+        preventDefaultException: this.preventDefaultException,
+        mouseWheel: this.mouseWheel
       };
       this.scroll = new BScroll(this.$refs.scroll, options);
       this.listenScroll && this.scroll.on('scroll', function (pos) {
@@ -1626,7 +1632,7 @@ var __vue_staticRenderFns__$2 = [];
   /* style */
   const __vue_inject_styles__$2 = function (inject) {
     if (!inject) return
-    inject("data-v-3b093137_0", { source: ".vue-slim-better-scroll{width:100%;height:100%;overflow:hidden;box-sizing:border-box;position:relative}.vue-slim-better-scroll__wrapper{position:relative;z-index:1}.vue-slim-better-scroll__pullup{width:100%;height:50px;display:-ms-flexbox;display:flex;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center;font-size:14px;color:#999}.vue-slim-better-scroll__pulldown{position:absolute;left:0;top:-50px;width:100%;display:-ms-flexbox;display:flex;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center;transition:all;font-size:14px;color:#999}.vue-slim-better-scroll__pulldown__before{display:-ms-flexbox;display:flex}.vue-slim-better-scroll__pulldown__after{width:100%;height:40px;display:-ms-flexbox;display:flex;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center}", map: undefined, media: undefined });
+    inject("data-v-2fcfe31c_0", { source: ".vue-slim-better-scroll{width:100%;height:100%;overflow:hidden;box-sizing:border-box;position:relative}.vue-slim-better-scroll__wrapper{position:relative;z-index:1}.vue-slim-better-scroll__pullup{width:100%;height:50px;display:-ms-flexbox;display:flex;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center;font-size:14px;color:#999}.vue-slim-better-scroll__pulldown{position:absolute;left:0;top:-50px;width:100%;display:-ms-flexbox;display:flex;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center;transition:all;font-size:14px;color:#999}.vue-slim-better-scroll__pulldown__before{display:-ms-flexbox;display:flex}.vue-slim-better-scroll__pulldown__after{width:100%;height:40px;display:-ms-flexbox;display:flex;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center}", map: undefined, media: undefined });
 
   };
   /* scoped */
