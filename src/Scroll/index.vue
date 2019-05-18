@@ -151,6 +151,11 @@ export default {
         tagName: /^(INPUT|TEXTAREA|BUTTON|SELECT)$/,
       }),
     },
+    mouseWheel: {
+      // 启用 PC 鼠标滚轮
+      type: Boolean,
+      default: false,
+    },
     autoUpdate: {
       // 自动刷新高度:适用于简单场景，复杂场景请使用updateData/refreshData
       type: Boolean,
@@ -241,6 +246,7 @@ export default {
         bounce: this.bounce,
         bounceTime: this.bounceTime,
         preventDefaultException: this.preventDefaultException,
+        mouseWheel: this.mouseWheel,
       }
 
       this.scroll = new BScroll(this.$refs.scroll, options)

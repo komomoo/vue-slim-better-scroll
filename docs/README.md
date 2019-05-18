@@ -104,6 +104,7 @@ startY | 纵轴方向初始化位置 | Number | 0
 bounce | 回弹效果 | Boolean | true
 bounceTime | 回弹时间 | Number | 600
 preventDefaultException | [不阻止默认行为](https://ustbhuangyi.github.io/better-scroll/doc/zh-hans/options.html#preventdefaultexception) | Object | { <br/> tagName: /^(INPUT\|TEXTAREA\|BUTTON\|SELECT)$/ <br/> }
+mouseWheel | [启用 PC 鼠标滚轮](https://ustbhuangyi.github.io/better-scroll/doc/zh-hans/options-advanced.html#mousewheelv180) | Boolean | false
 autoUpdate | 自动更新高度。原理为深监视 this.$parent.$data 自动调用 update()，适用于简单场景。复杂场景请使用updateData/refreshData 或手动调用update()/refresh() | Boolean | false
 updateData | 引起更新上拉/下拉加载状态的数据（下拉刷新/上拉加载相关的数据）。设置此项时，autoUpdate 应设置为 false | Array | null
 refreshData | 引起刷新高度的数据（不包含 updateData 内的数据） | Array | null
