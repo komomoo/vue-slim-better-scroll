@@ -156,6 +156,11 @@ export default {
       type: Boolean,
       default: false,
     },
+    betterScrollOptions: {
+      // 任何的 better-scroll 配置项，将合并在初始化 better-scroll 的配置中。注意：与 props 冲突的配置项将被 props 覆盖
+      type: Object,
+      default: null,
+    },
     autoUpdate: {
       // 自动刷新高度:适用于简单场景，复杂场景请使用updateData/refreshData
       type: Boolean,
@@ -235,6 +240,7 @@ export default {
       }
 
       const options = {
+        ...this.betterScrollOptions,
         probeType: this.probeType,
         click: this.click,
         scrollX: this.scrollX,
