@@ -23,7 +23,7 @@
 
 [Demo](https://wannaxiao.github.io/vue-slim-better-scroll/demo/default/dist/)
 
-[Demo 示例代码](https://github.com/wannaxiao/vue-slim-better-scroll/blob/master/demo/default/App.vue)
+[Demo 源码](https://github.com/wannaxiao/vue-slim-better-scroll/blob/master/demo/default/App.vue)
 
 [查看文档](https://wannaxiao.github.io/vue-slim-better-scroll/docs/dist/)
 
@@ -59,7 +59,7 @@ export default {
 }
 ```
 
-3.  使用它，请参考[Demo 示例代码](https://github.com/wannaxiao/vue-slim-better-scroll/blob/master/demo/default/App.vue)
+3.  使用它，请参考[Demo 源码](https://github.com/wannaxiao/vue-slim-better-scroll/blob/master/demo/default/App.vue)
 
 ```html
 <!-- 简单场景 -->

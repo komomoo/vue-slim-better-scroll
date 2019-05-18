@@ -28,7 +28,11 @@ sidebar: auto
 
 [Demo](https://wannaxiao.github.io/vue-slim-better-scroll/demo/default/dist/)
 
-[Demo示例代码](https://github.com/wannaxiao/vue-slim-better-scroll/blob/master/demo/default/App.vue)
+[Demo 源码](https://github.com/wannaxiao/vue-slim-better-scroll/blob/master/demo/default/App.vue)
+
+[Demo2: 与 vue-router 结合使用](https://wannaxiao.github.io/vue-slim-better-scroll/demo/complex/dist/)
+
+[Demo2 源码](https://github.com/wannaxiao/vue-slim-better-scroll/blob/master/demo/complex/)
 
 
 ## 🚀 快速开始
@@ -63,7 +67,7 @@ export default {
 ```
 
 
-3. 使用它，请参考[Demo示例代码](https://github.com/wannaxiao/vue-slim-better-scroll/blob/master/demo/default/App.vue)
+3. 使用它，请参考[Demo 源码](https://github.com/wannaxiao/vue-slim-better-scroll/blob/master/demo/default/App.vue)
 ``` html
 <!-- 简单场景 -->
 <Scroll
