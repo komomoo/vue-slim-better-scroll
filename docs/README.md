@@ -109,7 +109,7 @@ bounce | 回弹效果 | Boolean | true
 bounceTime | 回弹时间 | Number | 600
 preventDefaultException | [不阻止默认行为](https://ustbhuangyi.github.io/better-scroll/doc/zh-hans/options.html#preventdefaultexception) | Object | { <br/> tagName: /^(INPUT\|TEXTAREA\|BUTTON\|SELECT)$/ <br/> }
 mouseWheel | v1.6.2+，[启用 PC 鼠标滚轮](https://ustbhuangyi.github.io/better-scroll/doc/zh-hans/options-advanced.html#mousewheelv180) | Boolean | false
-betterScrollOptions | v1.7.0+，任何的 better-scroll 配置项，将合并在初始化 better-scroll 的配置中。注意：与 props 冲突的配置项将被 props 覆盖 | Object | null
+betterScrollOptions | v1.7.0+，任何的 [better-scroll 配置项](https://ustbhuangyi.github.io/better-scroll/doc/zh-hans/options.html)，将合并在初始化 better-scroll 的配置中。注意：与 props 冲突的配置项将被 props 覆盖 | Object | null
 autoUpdate | 自动更新高度。深监视 this.$parent.$data 自动调用 update()，适用于简单场景。复杂场景请使用updateData/refreshData 或手动调用 update()/refresh() | Boolean | false
 updateData | 引起更新上拉/下拉加载状态的数据（下拉刷新/上拉加载相关的数据）。设置此项时，autoUpdate 应设置为 false。当观测到该数据变化时，将自动调用 update() | Array | null
 refreshData | 引起刷新高度的数据（不包含 updateData 内的数据）。当观测到该数据变化时，将自动调用 refresh() 刷新滚动高度 | Array | null
