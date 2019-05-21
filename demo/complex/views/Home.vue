@@ -4,6 +4,7 @@
 
     <Scroll
       ref="scroll"
+      v-loading="loading"
       :update-data="[list]"
       :refresh-data="[]"
       class="content"
@@ -27,22 +28,25 @@ import Scroll from '../../../src'
 import { timeout } from '../../../src/Scroll/utils'
 
 export default {
-  name: 'App',
+  name: 'Home',
   components: {
     Scroll,
   },
   data () {
     return {
       list: [],
+      loading: false,
     }
   },
   created () {
     // 不会引起DOM变化的数据在此定义
     this.page = 1
-    this.pageSize = 10
+    this.pageSize = 20
   },
-  mounted () {
-    this.loadRefresh()
+  async mounted () {
+    this.loading = true
+    await this.loadRefresh()
+    this.loading = false
   },
   methods: {
     // 滚动到顶部
@@ -77,10 +81,10 @@ export default {
 
         if (page < 3) {
           // 模拟数据返回
-          return Array.from({ length: pageSize }, (value, index) => `第${page}页的数据${index}`)
+          return Array.from({ length: pageSize }, (value, index) => `第${page}页的数据${index},点我(｡･ω･)ﾉﾞ`)
         } else {
           // 模拟已到达最后一页时的数据返回
-          return Array.from({ length: pageSize / 2 }, (value, index) => `最后一页,第${page}页的数据${index}`)
+          return Array.from({ length: pageSize / 2 }, (value, index) => `最后一页,第${page}页的数据${index},点我(｡･ω･)ﾉﾞ`)
         }
       } catch (e) {
         return false

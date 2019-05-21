@@ -65,6 +65,7 @@
     "vue": "^2.6.7",
     "vue-hot-reload-api": "^2.3.2",
     "vue-router": "^3.0.2",
+    "vue-slim-loading": "^1.0.1",
     "vue-template-compiler": "^2.6.7"
   }
 }

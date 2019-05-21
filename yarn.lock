@@ -6562,6 +6562,11 @@ vue-runtime-helpers@1.0.0:
   resolved "http://registry.npm.taobao.org/vue-runtime-helpers/download/vue-runtime-helpers-1.0.0.tgz#af5fe1c8d727beb680b2eb9d791c8e022342e54d"
   integrity sha1-r1/hyNcnvraAsuudeRyOAiNC5U0=
 
+vue-slim-loading@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.npm.taobao.org/vue-slim-loading/download/vue-slim-loading-1.0.1.tgz#a48cf66157372ad955e4da6c25c0601786cd2827"
+  integrity sha1-pIz2YVc3KtlV5NpsJcBgF4bNKCc=
+
 vue-template-compiler@^2.6.7:
   version "2.6.8"
   resolved "http://registry.npm.taobao.org/vue-template-compiler/download/vue-template-compiler-2.6.8.tgz#750802604595134775b9c53141b9850b35255e1c"
