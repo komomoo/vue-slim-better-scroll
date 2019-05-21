@@ -60,7 +60,7 @@
     "@babel/core": "^7.3.3",
     "@momoko/babel-preset-vue": "^0.2.0",
     "@momoko/eslint-config-vue": "^0.2.2",
-    "dio-bundler": "^0.3.0",
+    "dio-bundler": "^0.3.1",
     "parcel-bundler": "^1.11.0",
     "vue": "^2.6.7",
     "vue-hot-reload-api": "^2.3.2",
