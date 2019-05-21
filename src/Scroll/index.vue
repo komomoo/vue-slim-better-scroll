@@ -207,7 +207,7 @@ export default {
       this.update()
     },
     async refreshData () {
-      if (this.updateState) return
+      if (this.pullDownUpdateState || this.pullUpUpdateState) return
 
       await this.$nextTick()
       this.refresh()
