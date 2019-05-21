@@ -30,7 +30,7 @@ sidebar: auto
 
 [Demo 源码](https://github.com/wannaxiao/vue-slim-better-scroll/blob/master/demo/default/App.vue)
 
-[Demo2: 与 vue-router 结合使用](https://wannaxiao.github.io/vue-slim-better-scroll/demo/complex/dist/)
+[Demo2: 结合 vue-router](https://wannaxiao.github.io/vue-slim-better-scroll/demo/complex/dist/)
 
 [Demo2 源码](https://github.com/wannaxiao/vue-slim-better-scroll/blob/master/demo/complex/)
 
@@ -110,9 +110,9 @@ bounceTime | 回弹时间 | Number | 600
 preventDefaultException | [不阻止默认行为](https://ustbhuangyi.github.io/better-scroll/doc/zh-hans/options.html#preventdefaultexception) | Object | { <br/> tagName: /^(INPUT\|TEXTAREA\|BUTTON\|SELECT)$/ <br/> }
 mouseWheel | v1.6.2+，[启用 PC 鼠标滚轮](https://ustbhuangyi.github.io/better-scroll/doc/zh-hans/options-advanced.html#mousewheelv180) | Boolean | false
 betterScrollOptions | v1.7.0+，任何的 better-scroll 配置项，将合并在初始化 better-scroll 的配置中。注意：与 props 冲突的配置项将被 props 覆盖 | Object | null
-autoUpdate | 自动更新高度。原理为深监视 this.$parent.$data 自动调用 update()，适用于简单场景。复杂场景请使用updateData/refreshData 或手动调用update()/refresh() | Boolean | false
-updateData | 引起更新上拉/下拉加载状态的数据（下拉刷新/上拉加载相关的数据）。设置此项时，autoUpdate 应设置为 false | Array | null
-refreshData | 引起刷新高度的数据（不包含 updateData 内的数据） | Array | null
+autoUpdate | 自动更新高度。深监视 this.$parent.$data 自动调用 update()，适用于简单场景。复杂场景请使用updateData/refreshData 或手动调用 update()/refresh() | Boolean | false
+updateData | 引起更新上拉/下拉加载状态的数据（下拉刷新/上拉加载相关的数据）。设置此项时，autoUpdate 应设置为 false。当观测到该数据变化时，将自动调用 update() | Array | null
+refreshData | 引起刷新高度的数据（不包含 updateData 内的数据）。当观测到该数据变化时，将自动调用 refresh() 刷新滚动高度 | Array | null
 
 ### Methods
 方法名 | 说明 | 参数
@@ -127,7 +127,7 @@ scrollToBottom | v1.4.0+，滚动到底部
 autoPullDownRefresh | v1.5.0+，手动触发下拉刷新
 destroy | 销毁 better-scroll，解绑事件
 refresh | 刷新滚动高度（当页面无法滚动时，可尝试调用此方法）
-update | 更新加载状态，下拉/下拉成功后使用。当 autoUpdate 为 true 时 vue-slim-better-scroll 会在恰当的时候自动调用该方法。当上拉加载到最后一页/需要触发停止上拉加载时，需要手动调用它 | (final:Boolean) 表明pullUp上拉加载是否到了最底部。下拉刷新成功后该值会自动 false。也可传入 false 手动声明不是最后一页
+update | 更新加载状态，下拉/上拉成功后使用。当上拉加载到最后一页/需要触发停止上拉加载时，需要手动调用它 | (pullUpFinally:Boolean) 声明 pullUp 上拉加载是否到了最底部。下拉刷新成功后该值会自动 false。也可传入 false 手动声明不是最后一页
 
 ### Events
 事件名 | 说明 | 回调参数
