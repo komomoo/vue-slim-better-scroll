@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.7.1"></a>
+## [1.7.1](https://github.com/wannaxiao/vue-slim-better-scroll/compare/v1.7.0...v1.7.1) (2019-05-21)
+
+
+### Bug Fixes
+
+* refreshData updateData conflict ([7954960](https://github.com/wannaxiao/vue-slim-better-scroll/commit/7954960))
+
+
+
 <a name="1.7.0"></a>
 # [1.7.0](https://github.com/wannaxiao/vue-slim-better-scroll/compare/v1.6.2...v1.7.0) (2019-05-18)
 

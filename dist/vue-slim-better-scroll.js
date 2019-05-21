@@ -1,5 +1,5 @@
-/**
- * vue-slim-better-scroll v1.7.0
+/*!
+ * vue-slim-better-scroll v1.7.1
  * Copyright (c) 2018-present, momoko <ko.momo@qq.com>
  * Released under the MIT License.
  */
@@ -1384,7 +1384,7 @@
             while (1) {
               switch (_context.prev = _context.next) {
                 case 0:
-                  if (!this.updateState) {
+                  if (!(this.pullDownUpdateState || this.pullUpUpdateState)) {
                     _context.next = 2;
                     break;
                   }
@@ -1682,7 +1682,7 @@
     /* style */
     const __vue_inject_styles__$2 = function (inject) {
       if (!inject) return
-      inject("data-v-caad05c4_0", { source: ".vue-slim-better-scroll{width:100%;height:100%;overflow:hidden;box-sizing:border-box;position:relative}.vue-slim-better-scroll__wrapper{position:relative;z-index:1}.vue-slim-better-scroll__pullup{width:100%;height:50px;display:-ms-flexbox;display:flex;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center;font-size:14px;color:#999}.vue-slim-better-scroll__pulldown{position:absolute;left:0;top:-50px;width:100%;display:-ms-flexbox;display:flex;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center;transition:all;font-size:14px;color:#999}.vue-slim-better-scroll__pulldown__before{display:-ms-flexbox;display:flex}.vue-slim-better-scroll__pulldown__after{width:100%;height:40px;display:-ms-flexbox;display:flex;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center}", map: undefined, media: undefined });
+      inject("data-v-772485ef_0", { source: ".vue-slim-better-scroll{width:100%;height:100%;overflow:hidden;box-sizing:border-box;position:relative}.vue-slim-better-scroll__wrapper{position:relative;z-index:1}.vue-slim-better-scroll__pullup{width:100%;height:50px;display:-ms-flexbox;display:flex;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center;font-size:14px;color:#999}.vue-slim-better-scroll__pulldown{position:absolute;left:0;top:-50px;width:100%;display:-ms-flexbox;display:flex;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center;transition:all;font-size:14px;color:#999}.vue-slim-better-scroll__pulldown__before{display:-ms-flexbox;display:flex}.vue-slim-better-scroll__pulldown__after{width:100%;height:40px;display:-ms-flexbox;display:flex;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center}", map: undefined, media: undefined });
 
     };
     /* scoped */
