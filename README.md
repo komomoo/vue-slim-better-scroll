@@ -25,6 +25,10 @@
 
 [Demo 源码](https://github.com/wannaxiao/vue-slim-better-scroll/blob/master/demo/default/App.vue)
 
+[Demo2: 结合 vue-router](https://wannaxiao.github.io/vue-slim-better-scroll/demo/complex/dist/)
+
+[Demo2 源码](https://github.com/wannaxiao/vue-slim-better-scroll/blob/master/demo/complex/)
+
 [查看文档](https://wannaxiao.github.io/vue-slim-better-scroll/docs/dist/)
 
 ## 🚀 快速开始
