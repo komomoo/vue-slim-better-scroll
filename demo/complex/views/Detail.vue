@@ -1,7 +1,9 @@
 <template>
   <div class="detail">
     <header class="header">
-      <i class="allow-left-icon" @click="goBack"></i>
+      <div class="back-btn" @click="goBack">
+        <i class="allow-left-icon"></i>
+      </div>
       Detail
     </header>
 
@@ -93,9 +95,19 @@ export default {
 
 <style lang="stylus">
 .detail {
+  .back-btn {
+    display: block;
+    width: 44px;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+  }
+
   .deatil-content {
-    margin-top 20px
-    text-align center
+    margin-top: 20px;
+    text-align: center;
   }
 }
 </style>
