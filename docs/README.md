@@ -144,8 +144,18 @@ default | 滚动的主体内容区域
 pulldown | 下拉刷新的内容
 pullup |  上拉加载的内容
 
-<br/>
-<br/>
+## ⚠️ 常见问题
+
+### 为什么无法滚动？
+
+父容器需要指定一个高度。
+
+如果想要高度自适应，父容器的高度可采用 `100%`、`vh`、`calc()`、`flex(1)` 等多种自适应方案。
+
+原因可参考 [better-scroll 滚动原理](https://ustbhuangyi.github.io/better-scroll/doc/zh-hans/#%E6%BB%9A%E5%8A%A8%E5%8E%9F%E7%90%86)。
+
+---
+
 😉😘 如果它对你有所帮助，可以点一下 <b>⭐️<a href="https://github.com/wannaxiao/vue-slim-better-scroll">Star</a></b> ~
 
 **🌟 [Star me !](https://github.com/wannaxiao/vue-slim-better-scroll)**
