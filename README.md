@@ -14,22 +14,22 @@
   * 多次下拉刷新节流
   * 多处细节改进
 * **更小体积**
-  * v1.5.0+ 使用 [dio](https://github.com/wannaxiao/dio) 构建，仅 25k (旧版本为 webpack 构建，体积 47k)
+  * v1.5.0+ 使用 [dio](https://github.com/komomoo/dio) 构建，仅 25k (旧版本为 webpack 构建，体积 47k)
   * v1.6.0+ 抛弃 gif，使用 css 重构 Loading。体积近一步减小，仅 21k
 
 ## 🐠 示例&文档
 
 <img src="./docs/assets/demo.gif" width="320" style="margin-top: 20px;">
 
-[Demo](https://wannaxiao.github.io/vue-slim-better-scroll/demo/default/dist/)
+[Demo](https://komomoo.github.io/vue-slim-better-scroll/demo/default/dist/)
 
-[Demo 源码](https://github.com/wannaxiao/vue-slim-better-scroll/blob/master/demo/default/App.vue)
+[Demo 源码](https://github.com/komomoo/vue-slim-better-scroll/blob/master/demo/default/App.vue)
 
-[Demo2: 结合 vue-router](https://wannaxiao.github.io/vue-slim-better-scroll/demo/complex/dist/)
+[Demo2: 结合 vue-router](https://komomoo.github.io/vue-slim-better-scroll/demo/complex/dist/)
 
-[Demo2 源码](https://github.com/wannaxiao/vue-slim-better-scroll/blob/master/demo/complex/)
+[Demo2 源码](https://github.com/komomoo/vue-slim-better-scroll/blob/master/demo/complex/)
 
-[查看文档](https://wannaxiao.github.io/vue-slim-better-scroll/docs/dist/)
+[查看文档](https://komomoo.github.io/vue-slim-better-scroll/docs/dist/)
 
 ## 🚀 快速开始
 
@@ -63,7 +63,7 @@ export default {
 }
 ```
 
-3.  使用它，请参考[Demo 源码](https://github.com/wannaxiao/vue-slim-better-scroll/blob/master/demo/default/App.vue)
+3.  使用它，请参考[Demo 源码](https://github.com/komomoo/vue-slim-better-scroll/blob/master/demo/default/App.vue)
 
 ```html
 <!-- 简单场景 -->
@@ -86,7 +86,7 @@ export default {
 </Scroll>
 ```
 
-[查看完整文档](https://wannaxiao.github.io/vue-slim-better-scroll/docs/dist/)
+[查看完整文档](https://komomoo.github.io/vue-slim-better-scroll/docs/dist/)
 
 ---
 
@@ -98,4 +98,4 @@ export default {
 
 [MIT](http://opensource.org/licenses/MIT)
 
-Copyright (c) 2018-present, momoko
+Copyright (c) 2018-present, komo

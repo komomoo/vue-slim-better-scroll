@@ -7,7 +7,7 @@ module.exports = {
   themeConfig: {
     nav: [
       { text: '指南', link: '/' },
-      { text: 'GitHub', link: 'https://github.com/wannaxiao/vue-slim-better-scroll' },
+      { text: 'GitHub', link: 'https://github.com/komomoo/vue-slim-better-scroll' },
     ],
   }
 }

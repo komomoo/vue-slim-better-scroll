@@ -1,6 +1,6 @@
 /**
  * better-scroll vue封装
- * @Author momoko
+ * @Author komo
  * @Date 2018/05
  */
 

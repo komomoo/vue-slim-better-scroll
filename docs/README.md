@@ -18,7 +18,7 @@ sidebar: auto
   * 多次下拉刷新节流
   * 多处细节改进
 * **更小体积**
-  * v1.5.0+ 使用 [dio](https://github.com/wannaxiao/dio) 构建，仅 25k (旧版本为 webpack 构建，体积 47k)
+  * v1.5.0+ 使用 [dio](https://github.com/komomoo/dio) 构建，仅 25k (旧版本为 webpack 构建，体积 47k)
   * v1.6.0+ 抛弃 gif，使用 css 重构 Loading。体积近一步减小，仅 21k
 
 
@@ -26,13 +26,13 @@ sidebar: auto
 
 <img src="./assets/demo.gif" width="320" style="margin-top: 20px;">
 
-[Demo](https://wannaxiao.github.io/vue-slim-better-scroll/demo/default/dist/)
+[Demo](https://komomoo.github.io/vue-slim-better-scroll/demo/default/dist/)
 
-[Demo 源码](https://github.com/wannaxiao/vue-slim-better-scroll/blob/master/demo/default/App.vue)
+[Demo 源码](https://github.com/komomoo/vue-slim-better-scroll/blob/master/demo/default/App.vue)
 
-[Demo2: 结合 vue-router](https://wannaxiao.github.io/vue-slim-better-scroll/demo/complex/dist/)
+[Demo2: 结合 vue-router](https://komomoo.github.io/vue-slim-better-scroll/demo/complex/dist/)
 
-[Demo2 源码](https://github.com/wannaxiao/vue-slim-better-scroll/blob/master/demo/complex/)
+[Demo2 源码](https://github.com/komomoo/vue-slim-better-scroll/blob/master/demo/complex/)
 
 
 ## 🚀 快速开始
@@ -67,7 +67,7 @@ export default {
 ```
 
 
-3. 使用它，请参考[Demo 源码](https://github.com/wannaxiao/vue-slim-better-scroll/blob/master/demo/default/App.vue)
+3. 使用它，请参考[Demo 源码](https://github.com/komomoo/vue-slim-better-scroll/blob/master/demo/default/App.vue)
 ``` html
 <!-- 简单场景 -->
 <Scroll
@@ -156,6 +156,6 @@ pullup |  上拉加载的内容
 
 ---
 
-😉😘 如果它对你有所帮助，可以点一下 <b>⭐️<a href="https://github.com/wannaxiao/vue-slim-better-scroll">Star</a></b> ~
+😉😘 如果它对你有所帮助，可以点一下 <b>⭐️<a href="https://github.com/komomoo/vue-slim-better-scroll">Star</a></b> ~
 
-**🌟 [Star me !](https://github.com/wannaxiao/vue-slim-better-scroll)**
+**🌟 [Star me !](https://github.com/komomoo/vue-slim-better-scroll)**

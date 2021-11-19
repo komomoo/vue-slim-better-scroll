@@ -2,12 +2,12 @@
   "name": "vue-slim-better-scroll",
   "version": "1.7.1",
   "description": "💇‍ 开箱即用的/渐进式的 vue 移动端滚动组件",
-  "author": "momoko <ko.momo@qq.com>",
+  "author": "komo <ko.momo@qq.com>",
   "license": "MIT",
   "private": false,
   "repository": {
     "type": "git",
-    "url": "https://github.com/wannaxiao/vue-slim-better-scroll"
+    "url": "https://github.com/komomoo/vue-slim-better-scroll"
   },
   "keywords": [
     "vue",
