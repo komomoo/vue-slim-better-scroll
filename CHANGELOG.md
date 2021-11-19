@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.7.2"></a>
+## [1.7.2](https://github.com/komomoo/vue-slim-better-scroll/compare/v1.7.1...v1.7.2) (2021-11-19)
+
+
+
 <a name="1.7.1"></a>
 ## [1.7.1](https://github.com/komomoo/vue-slim-better-scroll/compare/v1.7.0...v1.7.1) (2019-05-21)
 
